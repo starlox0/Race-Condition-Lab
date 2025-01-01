@@ -12,7 +12,7 @@ git clone https://github.com/starlox0/Race-Condition-Lab/
 cd Race-Condition-Lab
 ```
 ```console
-pyhton3 -m venv venv
+python3 -m venv venv
 source venv/bin/activate
 ```
 ```console
