@@ -1,0 +1,178 @@
+/* General styling */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f1f5f9;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+/* Title styling */
+h1, h2 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: 600;
+    font-size: 2.5rem;
+}
+
+h2 {
+    font-size: 1.5rem;
+    color: #555;
+}
+
+/* Navigation links */
+nav a {
+    text-decoration: none;
+    color: #007BFF;
+    margin-right: 15px;
+    font-size: 1.2rem;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #0056b3;
+}
+
+/* Form styling */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    margin: 20px auto;
+}
+
+/* Input and button styling */
+input[type="text"] {
+    padding: 10px;
+    width: 100%;
+    border: 2px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+input[type="text"]:focus {
+    border-color: #007BFF;
+    outline: none;
+}
+
+/* Button styling */
+button {
+    padding: 10px 15px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    transition: background-color 0.3s ease-in-out;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Project list styling */
+.project-list {
+    list-style: none;
+    padding: 0;
+    margin: 30px 0;
+    width: 90%;
+    max-width: 700px;
+}
+
+.project-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    padding: 12px 15px;
+    border: 2px solid #ddd;
+    border-radius: 6px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, background-color 0.3s;
+}
+
+.project-item:hover {
+    background-color: #f1f5f9;
+    transform: scale(1.02);
+}
+
+.project-name {
+    font-weight: bold;
+    color: #333;
+    font-size: 1.2rem;
+}
+
+.delete-form {
+    margin: 0;
+}
+
+.delete-btn {
+    background-color: #FF6347;
+    padding: 6px 12px;
+    font-size: 1rem;
+    border-radius: 4px;
+    margin-left: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.delete-btn:hover {
+    background-color: #CC4F39;
+}
+
+/* Warnings */
+.warning {
+    color: #b33a3a;
+    font-weight: bold;
+    margin-top: 10px;
+    font-size: 1rem;
+}
+
+/* Success and error messages */
+.success {
+    color: #28a745;
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+.error {
+    color: #dc3545;
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    .project-list {
+        width: 95%;
+    }
+
+    .project-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    button, input[type="text"] {
+        width: 100%;
+    }
+}
