@@ -1,1 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
 
+        /* Main Header */
+        h1 {
+            color: #333;
+            margin-top: 50px;
+            font-size: 2.5em;
+            font-weight: bold;
+        }
+
+        /* Subheader Text */
+        p {
+            color: #666;
+            font-size: 1.1em;
+            margin: 20px 0;
+        }
+
+        /* Navigation Styles */
+        nav {
+            margin-top: 30px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #fff;
+            background-color: #007BFF;
+            padding: 10px 20px;
+            margin: 10px;
+            border-radius: 5px;
+            font-size: 1.1em;
+            transition: background-color 0.3s;
+        }
+
+        nav a:hover {
+            background-color: #0056b3;
+        }
+
+        /* Footer Styles */
+        footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            font-size: 0.9em;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Welcome to Project Builder</h1>
+    <p>Build and manage your projects easily!</p>
+    <nav>
+        <a href="{{ url_for('signup') }}">Signup</a>
+        <a href="{{ url_for('login') }}">Login</a>
+        <a href="{{ url_for('pricing') }}">Pricing</a>
+    </nav>
+
+    <!-- Footer -->
+    <footer>
+        &copy; 2025 Project Builder | All rights reserved
+    </footer>
+</body>
+</html>

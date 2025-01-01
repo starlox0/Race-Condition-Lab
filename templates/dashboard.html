@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <style>
+        /* General Styles */
+        body {
+            background-color: #121212;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Header */
+        h1 {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            margin-bottom: 20px;
+            font-size: 2em;
+        }
+
+        /* Navigation */
+        nav {
+            text-align: center;
+            margin: 10px 0;
+        }
+
+        nav a {
+            color: #ff6347;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        nav a:hover {
+            color: #ff4500;
+        }
+
+        /* Project List */
+        h2 {
+            text-align: center;
+            margin: 20px 0;
+            font-size: 1.5em;
+        }
+
+        .project-list {
+            list-style-type: none;
+            padding: 0;
+            text-align: center;
+        }
+
+        .project-item {
+            background-color: #1e1e1e;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 10px;
+            display: inline-block;
+            width: 45%;
+            transition: background-color 0.3s ease;
+        }
+
+        .project-item:hover {
+            background-color: #333;
+        }
+
+        .project-name {
+            font-size: 1.2em;
+        }
+
+        .delete-btn {
+            background-color: #ff6347;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .delete-btn:hover {
+            background-color: #ff4500;
+        }
+
+        /* Project Creation */
+        .create-form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .create-form input {
+            padding: 10px;
+            margin: 10px 0;
+            width: 250px;
+            border-radius: 5px;
+            border: 1px solid #555;
+            background-color: #222;
+            color: #fff;
+        }
+
+        .create-form button {
+            background-color: #ff6347;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            width: 260px;
+        }
+
+        .create-form button:hover {
+            background-color: #ff4500;
+        }
+
+        /* Centering No Projects Text */
+        .no-projects {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 1.2em;
+        }
+
+        /* Warning Text */
+        .warning {
+            text-align: center;
+            color: #ffcc00;
+            font-size: 1em;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome, {{ username }}!</h1>
+    <nav>
+        <a href="{{ url_for('logout') }}">Logout</a>
+    </nav>
+    
+    <h2>Your Projects</h2>
+    {% if projects %}
+        <ul class="project-list">
+            {% for project in projects %}
+            <li class="project-item">
+                <span class="project-name">{{ project }}</span>
+                <form method="POST" action="{{ url_for('dashboard') }}" class="delete-form">
+                    <input type="hidden" name="delete_project" value="{{ project }}">
+                    <button type="submit" class="delete-btn">Delete</button>
+                </form>
+            </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p class="no-projects">You don't have any projects yet. Create your first project below!</p>
+    {% endif %}
+
+    <h2>Create a New Project</h2>
+    <form method="POST" action="{{ url_for('dashboard') }}" class="create-form">
+        <label for="project_name">Project Name:</label>
+        <input type="text" id="project_name" name="project_name" required>
+        <button type="submit" class="create-btn">Create Project</button>
+    </form>
+    {% if projects %}
+        <p class="warning">⚠️ Free users can only create one project. Please delete your existing project to create a new one.</p>
+    {% endif %}
+</body>
+</html>
